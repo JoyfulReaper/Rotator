@@ -1,6 +1,6 @@
 :root{
     --primary-color: #1d5888;
-    --secondary-color: #ff993b;
+    --secondary-color: #332aad;
     --dark-color: #292929;
     --white-color: #dff3e4;
 }
@@ -16,6 +16,10 @@ nav {
 footer {
     background-color: var(--dark-color);
     padding-right: 1rem;
+}
+
+.logoFont {
+    font-family: 'Tourney', cursive;
 }
 
 footer .social>a {
@@ -69,5 +73,5 @@ code[class*="language-"],
 }
 
 .alight:hover {
-    color: var(--white-color);
+    color: #95af9c;
 }
