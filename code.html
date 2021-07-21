@@ -123,9 +123,25 @@
                         </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>HelloWorld is a function that displays and alert with a message of "Hello World!"</p>
+                    <p><span class="logoFont">Rotator</span> is a JavaScript coding challenge to detect palindromes.</p>
+                    <h5>getInput()</h5>
+                    <p>Controller function that is called when the button is pressed. Used the JavaScript document API to get the string that the user inputted.
+                        It then called isPalindrome() with the user's input. The resulting object is then passed to displayResult() which outputs the results.
+                    </p>
+                    <h5>preparePhrase()</h5>
+                    <p>
+                        converts the parameter to lowercase and strips out any non-alpha characters.
+                    </p>
+                    <h5>isPalindrome()</h5>
+                    <p>
+                        Returns an object representing the entered phrase and wether or not it is a palindrome. It uses preparePhrase() to convert the user's input
+                        to lowercase, strip out non-alpha characters. Reverse the prepared input, then builds a result object.
+                    </p>
+                    <h5>displayResults()</h5>
+                    <p>
+                        Access the properties of the object returned by isPalindrome() to display a message indicating if the inputted string was a
+                        palindrome or not, as well as displaying the reversed input regardless.
+                    </p>
                 </div>
             </div>
         </div>
