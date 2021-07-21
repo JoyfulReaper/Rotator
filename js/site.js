@@ -1,8 +1,11 @@
 function getInput() {
+
     document.getElementById("alert").classList.add("invisible");
     let input = document.getElementById("userString").value;
 
-    displayResult(input);
+    let resultObj = isPalindrome(input);
+
+    displayResult(resultObj);
 }
 
 function preparePhrase(input)
@@ -15,34 +18,38 @@ function preparePhrase(input)
 
 function isPalindrome(input) {
 
-    input = preparePhrase(input);
-    let original = input;
+    let resultObj = {};
+    let reversed = preparePhrase(input);
+    let original = reversed;
 
-    input = input.split("").reverse().join(""); // Reverse
+    reversed = reversed.split("").reverse().join(""); // Reverse
 
-    if(input == original) {
-        return true;
+    if(reversed == original) {
+        resultObj.msg = "Well Done! You entered a palindrome!";
+        resultObj.isPalindrome = true;
+    }
+    else {
+        resultObj.msg = "Sorry! You didn't enter a palindrome!";
+        resultObj.isPalindrome = false;
     }
 
-    return false;
+    resultObj.reversed = reversed;
+
+    return resultObj;
 }
 
-function displayResult(input) {
+function displayResult(palindromeObj) {
 
-    let palindrom = isPalindrome(input);
-    let messageHeader = "You didn't enter a palindrome!"
-    let message = "";
-
-    if(palindrom) {
-        if(input == "") {
+    let message = [];
+    if(palindromeObj.isPalindrome) {
+        if(palindromeObj.reversed == "") {
             message = "I guess an empty string is a palindrome! "
         }
-        messageHeader = "Well Done! You entered a palindrome!"
     }
 
-    message += `Your phrase reversed is: ${preparePhrase(input).split("").reverse().join("")}`;
+    message += `Your phrase reversed is: ${palindromeObj.reversed}`;
 
-    document.getElementById("resultHeader").innerHTML = messageHeader;
+    document.getElementById("resultHeader").innerHTML = palindromeObj.msg;
     document.getElementById("msg").innerHTML = message;
     document.getElementById("alert").classList.remove("invisible");
 }
